@@ -1,0 +1,49 @@
+{
+	"name": "blocktrail/simple-block-explorer",
+	"description": "A simple Bitcoin block explorer built on Laravel with Blocktrail API",
+	"keywords": ["example", "laravel", "blocktrail", "bitcoin", "explorer", "blockchain"],
+	"license": "MIT",
+	"type": "project",
+    "repositories": [
+        {
+            "comment": "nocommit",
+            "type": "vcs",
+            "url": "https://github.com/blocktrail/bitcoin-lib-php"
+        }
+    ],
+	"require": {
+        "php": "~5.5.0",
+        "ext-bcmath": "*",
+		"laravel/framework": "4.2.*",
+        "bitwasp/bitcoin-lib": "dev-blocktrail",
+        "blocktrail/blocktrail-sdk": "~1.0"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php",
+            "vendor/blocktrail/blocktrail-sdk/src/"
+		]
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-update-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "stable"
+}
