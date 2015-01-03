@@ -4,18 +4,10 @@
 	"keywords": ["example", "laravel", "blocktrail", "bitcoin", "explorer", "blockchain"],
 	"license": "MIT",
 	"type": "project",
-    "repositories": [
-        {
-            "comment": "nocommit",
-            "type": "vcs",
-            "url": "https://github.com/blocktrail/bitcoin-lib-php"
-        }
-    ],
 	"require": {
         "php": "~5.5.0",
         "ext-bcmath": "*",
 		"laravel/framework": "4.2.*",
-        "bitwasp/bitcoin-lib": "dev-blocktrail",
         "blocktrail/blocktrail-sdk": "dev-beta-v1.1"
 	},
 	"autoload": {
