@@ -16,7 +16,7 @@
         "ext-bcmath": "*",
 		"laravel/framework": "4.2.*",
         "bitwasp/bitcoin-lib": "dev-blocktrail",
-        "blocktrail/blocktrail-sdk": "~1.0"
+        "blocktrail/blocktrail-sdk": "dev-beta-v1.1"
 	},
 	"autoload": {
 		"classmap": [
