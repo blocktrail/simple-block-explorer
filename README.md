@@ -1,7 +1,8 @@
 Simple Bitcoin Block Explorer
 =====================
 
-An example Bitcoin block explorer, using the [Blocktrail Bitcoin API](https://www.blocktrail.com/) and [Laravel framework.](http://laravel.com/).
+This a simple example of a Bitcoin block explorer, built using the [Blocktrail Bitcoin API](https://www.blocktrail.com/) and [Laravel framework.](http://laravel.com/).
+You can use it to get started on integrating Bitcoin data in your own php applications.
 
 ###Requirements
 You need [composer](https://getcomposer.org/) to for package management in the backend.
