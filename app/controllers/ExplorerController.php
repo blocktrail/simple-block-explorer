@@ -112,14 +112,18 @@ class ExplorerController extends BaseController {
 
             $addressRegex = "/^[13][a-km-zA-HJ-NP-Z0-9]{25,34}$/i";
             $blockHashRegex = "/^[0-9a-f]{64}$/i";
+            $txHashRegex = "/^[0-9a-f]{64}$/i";
             $blockHeightRegex = "/^[0-9]+$/i";
 
             if(preg_match($addressRegex, $query)) {
                 //go to address
                 return Redirect::route('address', $query);
-            } else if(preg_match($blockHashRegex, $query) || preg_match($blockHeightRegex, $query)) {
+            } else if( (preg_match($blockHashRegex, $query) && strpos($query, "00000000") === 0) || preg_match($blockHeightRegex, $query)) {
                 //go to block
                 return Redirect::route('block', $query);
+            } else if(preg_match($txHashRegex, $query)) {
+                //go to transaction
+                return Redirect::route('transaction', $query);
             } else {
                 //no matching pattern
                 $data = array(
