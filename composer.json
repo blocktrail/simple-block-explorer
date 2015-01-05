@@ -4,6 +4,12 @@
 	"keywords": ["example", "laravel", "blocktrail", "bitcoin", "explorer", "blockchain"],
 	"license": "MIT",
 	"type": "project",
+    "authors": [
+        {
+            "name": "Oisin Akiboye Conolly",
+            "email": "oisin@blocktrail.com"
+        }
+    ],
 	"require": {
         "php": "~5.5.0",
         "ext-bcmath": "*",
