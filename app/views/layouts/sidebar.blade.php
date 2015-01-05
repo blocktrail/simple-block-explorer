@@ -5,7 +5,7 @@
         @if(Route::currentRouteName() != 'home')
         <li class="navbar-item u-pull-right">
             {{ Form::open(array('route' => 'search', 'method' => 'get')) }}
-                {{ Form::text('query', null, array('placeholder' => 'address, block hash or height', 'class' => 'u-full-width-2')) }}
+                {{ Form::text('query', null, array('placeholder' => 'address, block or transaction', 'class' => 'u-full-width-2')) }}
                 {{ Form::submit('search') }}
             {{ Form::close() }}
         </li>

@@ -15,7 +15,7 @@
             {{ Form::open(array('route' => 'search', 'method' => 'get')) }}
                 <div class="row">
                     <div class="ten columns">
-                        {{ Form::text('query', null, array('placeholder' => 'address hash, block hash or height', 'class' => 'u-full-width')) }}
+                        {{ Form::text('query', null, array('placeholder' => 'address, block hash/height or transaction', 'class' => 'u-full-width')) }}
                     </div>
                     <div class="two columns">
                         {{ Form::submit('search', array('class' => 'button button-primary')) }}
