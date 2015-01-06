@@ -16,6 +16,7 @@
     <!-- FONT
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 
     <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
