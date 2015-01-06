@@ -4,6 +4,19 @@ section {
     padding-top: 3em;
 }
 
+.no-margin{
+    margin: 0;
+}
+.margin-t{
+    margin-top: 1em;
+}
+.margin-b{
+    margin-bottom: 1em;
+}
+.btc-value {
+    font-family: 'Arvo', sans;
+}
+
 /*---pagination---*/
 ul.pagination{
     list-style: none;
