@@ -12,7 +12,7 @@ class ExplorerController extends BaseController {
         $apiSecret = $apiCredentials['secret'];
         $currency = "btc";
         $this->bitcoinClient = new Blocktrail($apiKey, $apiSecret, $currency, false);
-        $this->bitcoinClient->setCurlDefaultOption('verify', false); //disable ssl verification, for local testing
+        //$this->bitcoinClient->setCurlDefaultOption('verify', false); //disable ssl verification, for local testing
     }
 
     public function showHome()
