@@ -16,12 +16,16 @@
     <section>
         <div class="container">
             <h2 class="section-heading">Summary</h2>
-            <div><b>Address:</b> {{$summary['address']}}</div>
-            <div><b>Balance:</b> {{$summary['balance']}} Satoshi</div>
-            <div>
-                @if($summary['category'])
-                <b>Tag:</b> {{$summary['category']}}: {{$summary['tag']}}
-                @endif
+            <div class="row">
+                <div class="six columns"><b>Address:</b> {{$summary['address']}}</div>
+                <div class="three columns">
+                    @if($summary['category'])
+                    <b>Tag:</b> {{$summary['category']}}: {{$summary['tag']}}
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="three columns"><b>Balance:</b> <span class="btc-value">@toBTC($summary['balance'])</span> BTC</div>
             </div>
         </div>
     </section>
@@ -31,19 +35,17 @@
             <div class="row">
                 <div class="one-third column">
                     <h2>Transactions</h2>
-                    <div class="row">
-                        <div class="one-half column">
-                            <h5>Received</h5>
-                            <div><b>Total:</b> {{$summary['total_transactions_in']}}</div>
-                            <div><b>Amount:</b> {{$summary['received']}}</div>
-                            <div><b>Unconfirmed:</b> {{$summary['unconfirmed_received']}}</div>
-                        </div>
-                        <div class="one-half column">
-                            <h5>Sent</h5>
-                            <div><b>Total:</b> {{$summary['total_transactions_out']}}</div>
-                            <div><b>Amount:</b> {{$summary['sent']}}</div>
-                            <div><b>Unconfirmed:</b> {{$summary['unconfirmed_sent']}}</div>
-                        </div>
+                    <div class="margin-b">
+                        <h5 class="no-margin">Received</h5>
+                        <div><b>Total:</b> {{$summary['total_transactions_in']}}</div>
+                        <div><b>Amount:</b> <span class="btc-value">@toBTC($summary['received'])</span> BTC</div>
+                        <div><b>Unconfirmed:</b> <span class="btc-value">@toBTC($summary['unconfirmed_received'])</span> BTC</div>
+                    </div>
+                    <div class="margin-b">
+                        <h5 class="no-margin">Sent</h5>
+                        <div><b>Total:</b> {{$summary['total_transactions_out']}}</div>
+                        <div><b>Amount:</b> <span class="btc-value">@toBTC($summary['sent'])</span> BTC</div>
+                        <div><b>Unconfirmed:</b> <span class="btc-value">@toBTC($summary['unconfirmed_sent'])</span> BTC</div>
                     </div>
                 </div>
                 <div class="two-thirds column">
@@ -52,7 +54,7 @@
                             <thead>
                                 <tr>
                                     <th><div>Date</div></th>
-                                    <th><div>Amount</div></th>
+                                    <th><div>Amount <small>(Satoshi)</small></div></th>
                                     <th><div>Confirmations</div></th>
                                     <th><div>Recipient</div></th>
                                     <th></th>
@@ -61,7 +63,7 @@
                             <tfoot>
                                 <tr>
                                     <td>Date</td>
-                                    <td>Amount</td>
+                                    <td>Amount <small>(Satoshi)</small></td>
                                     <td>Confirmations</td>
                                     <td>Recipient</td>
                                     <td></td>
@@ -76,7 +78,7 @@
                                             <td class="output">+{{$txout['value']}}</td>
                                             <td>{{$tx['confirmations']}}</td>
                                             <td>-</td>
-                                            <td><a href="{{ URL::route('transaction', $tx['hash']) }}">more info</a></td>
+                                            <td><a href="{{ URL::route('transaction', $tx['hash']) }}">more info</a> </td>
                                         </tr>
                                         @endif
                                     @endforeach
@@ -87,7 +89,7 @@
                                             <td class="input">-{{$txin['value']}}</td>
                                             <td>{{$tx['confirmations']}}</td>
                                             <td><a href="{{ URL::route('address', $txin['address']) }}">{{ substr($txin['address'], 0, 8)}}</a>...</td>
-                                            <td><a href="{{ URL::route('transaction', $tx['hash']) }}">more info</a></td>
+                                            <td><a href="{{ URL::route('transaction', $tx['hash']) }}">more info</a> </td>
                                         </tr>
                                         @endif
                                     @endforeach

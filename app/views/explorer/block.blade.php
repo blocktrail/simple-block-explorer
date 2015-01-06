@@ -16,19 +16,27 @@
     <section>
         <div class="container">
             <h2 class="section-heading">Summary</h2>
-            <div><b>Block Time: </b>@datetime($block['block_time'])</div>
-            <div><b>Height:</b> {{$block['height']}}</div>
-            <div><b>Size:</b> {{$block['byte_size']}} bytes</div>
-            <div><b>Transactions:</b> {{$block['transactions']}}</div>
-            <div><b>Confirmations:</b> {{$block['confirmations']}}</div>
-            <div><b>Orphaned:</b>{{$block['is_orphan'] ? 'yes' : 'no'}}</div>
-            <div>
-            @if($block['prev_block'])
-                <b>Previous: </b>#<a href="{{ URL::route('block', $block['prev_block']) }}">{{$block['height']-1}}</a>
-                @endif
-                @if($block['next_block'])
-                <b style="margin-left:1em;">Next: </b>#<a href="{{ URL::route('block', $block['next_block']) }}">{{$block['height']+1}}</a>
-                @endif
+            <div class="row">
+                <div class="three columns"><b>Block Time: </b>@datetime($block['block_time'])</div>
+                <div class="three columns"><b>Height:</b> {{$block['height']}}</div>
+                <div class="three columns"><b>Transactions:</b> {{$block['transactions']}}</div>
+                <div class="three columns"><b>Size:</b> {{$block['byte_size']}} bytes</div>
+            </div>
+            <div class="row">
+                <div class="three columns"><b>Confirmations:</b> {{$block['confirmations']}}</div>
+                <div class="three columns"><b>Orphaned:</b> {{$block['is_orphan'] ? 'yes' : 'no'}}</div>
+            </div>
+            <div class="row margin-t">
+                <div class="three columns">
+                    @if($block['prev_block'])
+                    <b>Previous: </b>#<a href="{{ URL::route('block', $block['prev_block']) }}">{{$block['height']-1}}</a>
+                    @endif
+                </div>
+                <div class="three columns">
+                    @if($block['next_block'])
+                    <b>Next: </b>#<a href="{{ URL::route('block', $block['next_block']) }}">{{$block['height']+1}}</a>
+                    @endif
+                </div>
             </div>
         </div>
     </section>
@@ -40,7 +48,7 @@
                     <h2>Transactions</h2>
                     <div class="row">
                         <div><b>Total Transactions:</b> {{$block['transactions']}}</div>
-                        <div><b>Value:</b> {{$block['value']}} Satoshi</div>
+                        <div><b>Value:</b> <span class="btc-value">@toBTC($block['value'])</span> BTC</div>
                     </div>
                 </div>
                 <div class="two-thirds column">

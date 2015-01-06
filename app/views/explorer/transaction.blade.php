@@ -15,36 +15,40 @@
     <section>
         <div class="container">
             <h2 class="section-heading">Summary</h2>
-            <div><b>Seen: </b>@datetime($first_seen_at)</div>
-            <div><b>Estimated Value: </b>{{$estimated_value}} Satoshi</div>
-            <div><b>Transaction Fee: </b>{{$total_fee}} Satoshi</div>
-            <div><b>Confirmations: </b>{{$confirmations}}</div>
-            @if ($block_hash)
-            <div><b>Block: </b>#<a href="{{ URL::route('block', $block_hash) }}">{{$block_height}}</a></div>
-            @endif
+            <div class="row">
+                <div class="four columns"><b>Estimated Value: </b><span class="btc-value">@toBTC($estimated_value)</span> BTC</div>
+                <div class="three columns"><b>Confirmations: </b>{{$confirmations}}</div>
+                <div class="three columns"><b>Seen: </b>@datetime($first_seen_at)</div>
+            </div>
+            <div class="row">
+                <div class="four columns"><b>Transaction Fee: </b><span class="btc-value">@toBTC($total_fee)</span> BTC</div>
+                @if ($block_hash)
+                <div class="three columns"><b>Block: </b>#<a href="{{ URL::route('block', $block_hash) }}">{{$block_height}}</a></div>
+                @endif
+            </div>
         </div>
     </section>
 
     <section class="address-transactions">
         <div class="container">
             <div class="row">
-                <div class="one-half column">
+                <div class="one-third column">
                     <h2>Inputs</h2>
                     <div><b>Total:</b> {{ count($inputs) }}</div>
-                    <div><b>Amount:</b> {{$total_input_value}}</div>
+                    <div><b>Amount:</b> <span class="btc-value">@toBTC($total_input_value)</span> BTC</div>
                 </div>
-                <div class="one-half column scroll-window">
+                <div class="two-thirds column scroll-window">
                     <table class="u-full-width fixed-header inputs">
                         <thead>
                             <tr>
-                                <th><div>Amount</div></th>
+                                <th><div>Amount <small>(Satoshi)</small></div></th>
                                 <th><div>Sender</div></th>
                                 <th><div>Original Tx</div></th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <td>Amount</td>
+                                <td>Amount <small>(Satoshi)</small></td>
                                 <td>Sender</td>
                                 <td>Original Tx</td>
                                 <td></td>
@@ -81,23 +85,23 @@
     <section class="address-transactions">
         <div class="container">
             <div class="row">
-                <div class="one-half column">
+                <div class="one-third column">
                     <h2>Outputs</h2>
                     <div><b>Total:</b> {{ count($outputs) }}</div>
-                    <div><b>Amount:</b> {{$total_output_value}}</div>
+                    <div><b>Amount:</b> <span class="btc-value">@toBTC($total_output_value)</span> BTC</div>
                 </div>
-                <div class="one-half column scroll-window">
+                <div class="two-thirds column scroll-window">
                     <table class="u-full-width fixed-header outputs">
                         <thead>
                             <tr>
-                                <th><div>Amount</div></th>
+                                <th><div>Amount <small>(Satoshi)</small></div></th>
                                 <th><div>Recipient</div></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <td>Amount</td>
+                                <td>Amount <small>(Satoshi)</small></td>
                                 <td>Recipient</td>
                                 <td></td>
                             </tr>
