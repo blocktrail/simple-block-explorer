@@ -41,7 +41,7 @@ run `php artisan serve` to quickly setup a nice little local server serve the ap
 With the server up and running now, simply navigate to [http://localhost:8000](http://localhost:8000) to see the block explorer at work 
 
 
-#####5. Things to know
+
 ***Windows Developers***  
 A note for windows developers: you may encounter an issue in php with cURL and SSL certificates, where cURL is unable to verify a server's cert with a CA ((error 60)[http://curl.haxx.se/libcurl/c/libcurl-errors.html]).  
 Too often the suggested solution is to disable ssl cert verification in cURL, but this completely defeats the point of using SSL. Instead you should take two very simple steps to solve the issue permanently:  
